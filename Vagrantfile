@@ -6,8 +6,7 @@ Vagrant.configure("2") do |config|
   #config.vm.box = "ubuntu/trusty64"
   config.vm.box = "marko424/dev-lamp"
   # Set box version (default - latest version available)
-  # config.vm.box_version = "1.0.0"
-
+  #config.vm.box_version = "1.0.0"
   # Always check for box updates (default option)
   #config.vm.box_check_update = false
 
