@@ -19,10 +19,10 @@ Vagrant.configure("2") do |config|
 
   ###### SSH
   # Set SSH username - default 'vagrant'
-  #config.ssh.username = "vagrant"
+  config.ssh.username = "vagrant"
   # Set SSH username - default without password
   # If you use a password, Vagrant will automatically insert a keypair if insert_key is true
-  #config.ssh.password = "vagrant"
+  config.ssh.password = "vagrant"
 
   ###### Networking
   # Access guest machine address through host machine address in the private address space
