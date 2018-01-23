@@ -16,6 +16,7 @@ main() {
 	addLocales
 	apacheConfig
 	phpConfig
+  composerConfig
 	#mysqlConfig
 	mariaDBConfig
 	restartServices
@@ -88,6 +89,16 @@ phpConfig() {
 
     printf "\n"
     php -v
+}
+
+composerConfig() {
+    ###### Composer
+    printf "\n\n\n\n[ #### Install Composer #### ]\n\n"
+    curl -sS https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+
+    printf "\n"
+    composer --version
 }
 
 mysqlConfig() {
