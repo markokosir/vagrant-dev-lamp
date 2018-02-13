@@ -41,8 +41,10 @@ Vagrant.configure("2") do |config|
 
     # Workaround for https://www.virtualbox.org/ticket/15705
     vb.customize ['modifyvm', :id, '--cableconnected1', 'on']
+      
+    # Workaround for basebox ubuntu/xenial64
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
   end
-
   ###### Provisioning
   config.vm.provision "shell", path: "provision/bootstrap.sh"
 end
