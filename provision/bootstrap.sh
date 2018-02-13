@@ -19,7 +19,6 @@ main() {
 	phpConfig
 	composerConfig
 	nodejsConfig
-	#mysqlConfig
 	mariaDBConfig
 	restartServices
 	cleanUp
@@ -114,35 +113,6 @@ nodejsConfig() {
     node -v
     printf "\n"
     npm -v
-}
-
-mysqlConfig() {
-    ###### MySQL
-    # No new empty lines allowed in the lower block
-    printf "\n\n\n\n[ #### Install MySQL #### ]\n\n"
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password rootpass'
-    sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password rootpass'
-    sudo apt-get -y install mysql-server
-    printf "\n"
-
-    # Update mysql configs file.
-    printf "\n\n\n\n[ #### Updating mysql configs in ${mysql_config_file}.#### ]\n\n"
-
-    sudo sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" ${mysql_config_file}
-    printf "\nUpdated mysql bind address in ${mysql_config_file} to 0.0.0.0 to allow external connections\n"
-
-    sudo sed -i "/.*skip-external-locking.*/s/^/#/g" ${mysql_config_file}
-    printf "\nUpdated mysql skip-external-locking in ${mysql_config_file} to #skip-external-locking. If you run multiple servers that use the same database directory (not recommended), each server must have external locking enabled\n"
-
-    # Assign mysql root user access on %
-    sudo mysql -u root -p$db_password --execute "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$db_password' with GRANT OPTION; FLUSH PRIVILEGES;"
-    printf "Assigned mysql user 'root' access on all hosts."
-
-    # Restart mysql service
-    sudo service mysql restart
-
-    printf "\n"
-    mysql --version
 }
 
 mariaDBConfig() {
