@@ -9,7 +9,7 @@ server_ip = "192.168.33.10"
 
 Vagrant.configure("2") do |config|
   ###### Vagrant box configuration
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   #config.vm.box = "marko424/dev-lamp"
   # Set box version (default - latest version available)
   #config.vm.box_version = "1.0.0"
@@ -19,10 +19,10 @@ Vagrant.configure("2") do |config|
 
   ###### SSH
   # Set SSH username - default 'vagrant'
-  config.ssh.username = "vagrant"
+  #config.ssh.username = "vagrant"
   # Set SSH username - default without password
   # If you use a password, Vagrant will automatically insert a keypair if insert_key is true
-  config.ssh.password = "vagrant"
+  #config.ssh.password = "vagrant"
 
   ###### Networking
   # Access guest machine address through host machine address in the private address space
