@@ -19,6 +19,7 @@ main() {
 	phpConfig
 	composerConfig
 	nodejsConfig
+	ngrokConfig
 	mariaDBConfig
 	restartServices
 	cleanUp
@@ -113,6 +114,17 @@ nodejsConfig() {
     node -v
     printf "\n"
     npm -v
+}
+
+ngrokConfig() {
+    ###### ngrok
+    printf "\n\n\n\n[ #### Install ngrok #### ]\n\n"
+    sudo wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+    sudo unzip ngrok-stable-linux-amd64.zip -d /usr/local/bin
+    sudo rm -rf ngrok-stable-linux-amd64.zip
+
+    printf "\n"
+    ngrok -v
 }
 
 mariaDBConfig() {
