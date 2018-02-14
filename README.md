@@ -7,4 +7,4 @@
 * Composer & npm
 * ngrok
 
-[marko424/dev-lamp](https://app.vagrantup.com/marko424/boxes/dev-lamp)
+Vagrant box - [marko424/dev-lamp](https://app.vagrantup.com/marko424/boxes/dev-lamp)
