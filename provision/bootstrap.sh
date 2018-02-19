@@ -19,6 +19,7 @@ main() {
 	phpConfig
 	composerConfig
 	nodejsConfig
+	memcachedRedisConfig
 	ngrokConfig
 	mariaDBConfig
 	restartServices
@@ -78,8 +79,9 @@ phpConfig() {
     sudo apt-add-repository ppa:ondrej/php -y
     sudo apt-get update
     # Only add modules that are not already included
-    sudo apt-get install -y php${php_version} php${php_version}-mysql php${php_version}-xml \
-    php${php_version}-mbstring zip unzip php${php_version}-zip php-xdebug
+    sudo apt-get install -y php${php_version} php${php_version}-mysql \
+    php${php_version}-xml php${php_version}-mbstring zip unzip php${php_version}-zip \
+    php${php_version}-memcached php-xdebug
 
     # Update Xdebug settings
     printf "\nUpdate Xdebug settings\n"
@@ -114,6 +116,16 @@ nodejsConfig() {
     node -v
     printf "\n"
     npm -v
+}
+
+memcachedRedisConfig() {
+    ###### Memcached, Redis
+    printf "\n\n\n\n[ #### Install Memcached & Redis #### ]\n\n"
+    sudo apt-add-repository ppa:chris-lea/redis-server -y
+    sudo apt-get install -y redis-server memcached
+
+    printf "\n"
+    redis-server --version
 }
 
 ngrokConfig() {
