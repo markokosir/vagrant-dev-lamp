@@ -5,6 +5,7 @@
 * Xdebug 2.6.0
 * MariaDB 10.2.12
 * Composer & npm
+* Memcached & Redis
 * ngrok
 
 Vagrant box - [marko424/dev-lamp](https://app.vagrantup.com/marko424/boxes/dev-lamp)
